@@ -53,7 +53,9 @@ const patchBeerDescriptionFetch = function(editBeerObj) {
     body: JSON.stringify(editBeerObj)
   })
   .then( response => response.json() )
+  // realized I needed to add an extra line in here to render the edit appropriately-- I can explain it when we talk. It's updating the DB and showing on refresh, I know what I need to do to fix it!
   .then( updatedBeer => renderBeerDetails(updatedBeer) )
+  alert("Beer successfully updated 🍺");
 };
 
     /***** RENDER FUNCTIONS *****/
