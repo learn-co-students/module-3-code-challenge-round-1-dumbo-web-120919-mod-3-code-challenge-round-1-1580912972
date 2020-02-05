@@ -82,12 +82,28 @@ function renderBeerDetails(beer) {
   <textarea id="beer-description">${beer.description}</textarea>
   <button id="edit-beer" class="btn btn-info">
     Save
-  </button>`
+  </button>
+  <h4><em>First Brewed: ${beer.first_brewed}</em></h4>
+  <h4>Food Pairing Recommendations</h4>
+  <ul id="food-pairing-list">
+  </ul>
+  <h4>Brewer's Tips:</h4>
+  <p>${beer.brewers_tips}</p>`
+
+  beer.food_pairing.forEach( food => renderOneFoodPairing(food) );
 
   beerId = beer.id;
 
   let editButton = document.getElementById("edit-beer");
   editButton.addEventListener("click", handleEditBeer);
+};
+// *BONUS* function to render food-pairings from beer database
+function renderOneFoodPairing(food) {
+  foodPairingList = document.getElementById("food-pairing-list");
+  foodLi = document.createElement("li")
+  foodLi.innerText = food;
+
+  foodPairingList.append(foodLi);
 };
 
     /***** MISC. FUNCTIONS *****/
